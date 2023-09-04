@@ -20,14 +20,14 @@ const CreateBook = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/v1/create', {
+      const res = await axios.post('https://mern-book-store-server.vercel.app/api/v1/create', {
         title,
         genre,
         author,
         year,
         pages,
         publisher,
-      });
+      },{withCredentials: true});
       enqueueSnackbar('Book created successfully', { variant: 'success' });
       navigate('/');
     } catch (error) {

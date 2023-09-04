@@ -21,7 +21,7 @@ const UpdateBook = () => {
     const fetchBook = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:5000/api/v1/book/${id}`);
+        const res = await axios.get(`https://mern-book-store-server.vercel.app/api/v1/book/${id}`, {withCredentials: true});
         const { title, genre, author, year, pages, publisher } = res.data.data;
         setTitle(title);
         setGenre(genre);
@@ -47,14 +47,14 @@ const UpdateBook = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.put(`http://localhost:5000/api/v1/update/${id}`, {
+      const res = await axios.put(`https://mern-book-store-server.vercel.app/api/v1/update/${id}`, {
         title,
         genre,
         author,
         year,
         pages,
         publisher,
-      });
+      },{withCredentials: true});
       navigate('/');
       enqueueSnackbar('Book updated successfully', { variant: 'success' });
     } catch (error) {

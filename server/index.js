@@ -15,7 +15,16 @@ const morgan=require("morgan");
 
 
 //middleware
-app.use(cors());
+app.use(cors(
+  {
+    // origin: ["https://mern-book-store-client.vercel.app"],
+    origin: '*',
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }
+));
+
+// app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(morgan("dev"));
@@ -28,6 +37,8 @@ connectionWithDB();
 //routes
 const bookRoute=require("./routes/bookRoute");
 app.use("/api/v1",bookRoute);
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

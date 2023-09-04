@@ -15,7 +15,7 @@ const DeleteBook = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.delete(`http://localhost:5000/api/v1/delete/${id}`);
+      const res = await axios.delete(`https://mern-book-store-server.vercel.app/api/v1/delete/${id}`,{withCredentials: true});
       enqueueSnackbar('Book deleted successfully', { variant: 'success' });
       navigate('/');
     } catch (error) {

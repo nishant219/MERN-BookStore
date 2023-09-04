@@ -4,6 +4,16 @@ const bigPromise=require("../middlewares/bigPromise");
 const customError=require("../utils/customError");
 const bookModel=require("../models/bookModel");
 
+
+//home
+exports.home=bigPromise(async(req,res,next)=>{
+    console.log("home");
+    res.status(200).json({
+        success:true,
+        message:"Welcome to the home page"
+    });
+});
+
 //create book
 exports.createBook=bigPromise(async(req,res,next)=>{
 
