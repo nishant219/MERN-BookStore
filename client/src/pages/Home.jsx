@@ -15,8 +15,9 @@ const Home = () => {
     const fetchBooks = async () => {
       setLoading(true);
       try {
-        const res = await axios.get('https://bookstore-server-po8m.onrender.com/api/v1/allbooks',{withCredentials: true});
-        console.log('API Response:', res.data);
+        // const res = await axios.get('https://bookstore-server-po8m.onrender.com/api/v1/allbooks',{withCredentials: true});
+        const res = await axios.get('https://bookstore-server-po8m.onrender.com/api/v1/allbooks');
+        //console.log('API Response:', res.data);
         setBooks(res.data.data); // Update books with the data property from the response
       } catch (error) {
         console.error('Error fetching books:', error);

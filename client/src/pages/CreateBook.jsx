@@ -27,7 +27,7 @@ const CreateBook = () => {
         year,
         pages,
         publisher,
-      },{withCredentials: true});
+      });
       enqueueSnackbar('Book created successfully', { variant: 'success' });
       navigate('/');
     } catch (error) {

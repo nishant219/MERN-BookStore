@@ -21,7 +21,7 @@ const UpdateBook = () => {
     const fetchBook = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`https://bookstore-server-po8m.onrender.com/api/v1/book/${id}`, {withCredentials: true});
+        const res = await axios.get(`https://bookstore-server-po8m.onrender.com/api/v1/book/${id}`);
         const { title, genre, author, year, pages, publisher } = res.data.data;
         setTitle(title);
         setGenre(genre);
@@ -54,7 +54,7 @@ const UpdateBook = () => {
         year,
         pages,
         publisher,
-      },{withCredentials: true});
+      });
       navigate('/');
       enqueueSnackbar('Book updated successfully', { variant: 'success' });
     } catch (error) {
