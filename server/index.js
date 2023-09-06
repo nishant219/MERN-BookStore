@@ -16,7 +16,7 @@ const morgan=require("morgan");
 
 //middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://mern-book-store-client.vercel.app'],
+  origin: ['http://localhost:5173', 'https://mern-book-store-client.vercel.app', 'https://bookstore.nishantpatil.me/'],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
